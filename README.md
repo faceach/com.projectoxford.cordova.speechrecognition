@@ -2,9 +2,6 @@
 
 Project Oxford Speech Documentation URL: https://www.projectoxford.ai/doc/speech/overview
 
-Copyright (c) Microsoft Corporation
-All rights reserved. 
-
 Code example
 ------------
 ```
@@ -22,3 +19,6 @@ Code example
     };
     recognition.start();
 ```
+
+Copyright (c) Microsoft Corporation
+All rights reserved. 
