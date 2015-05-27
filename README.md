@@ -1,1 +1,24 @@
-# cordova-plugin-speechrecognition
+# Cordova Plugin for Microsoft Oxford Speech Recognition
+
+Project Oxford Speech Documentation URL: https://www.projectoxford.ai/doc/speech/overview
+
+Copyright (c) Microsoft Corporation
+All rights reserved. 
+
+Code example
+------------
+```
+    var recognition = new OxfordSpeechRecognition({
+        "lang": "zh-cn",
+        "primaryKey": "your subscription key"
+    });
+    recognition.onresult = function(event) {
+        if (event.result) {
+            //...
+        } else if (event.partial) {
+            //...
+        }
+        
+    };
+    recognition.start();
+```

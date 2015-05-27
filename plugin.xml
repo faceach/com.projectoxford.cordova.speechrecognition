@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.oxford.plugin.speechrecognition" version="0.0.1">
+    <name>Project Oxford Speech Recognition</name>
+    <description>A Cordova plugin provide speech recognition</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,speech recognition, project oxford, Microsoft</keywords>
+    <engines>
+        <engine name="cordova" version=">=3.6.0" />
+    </engines>
+    <js-module src="www/oxfordspeechrecognition.js" name="OxfordSpeechRecognition">
+        <clobbers target="OxfordSpeechRecognition" />
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="OxfordSpeechRecognition">
+                <param name="android-package" value="com.oxford.plugin.speechrecognition.OxfordSpeechRecognition" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+        </config-file>
+        <source-file src="src/android/OxfordSpeechRecognition.java" target-dir="src/com/oxford/plugin/speechrecognition" />
+        <source-file src="src/android/libs/SpeechSDK.jar" target-dir="libs" />
+        <source-file src="src/android/libs/armeabi/libandroid_platform.so" target-dir="libs/armeabi/" />
+    </platform>
+</plugin>
