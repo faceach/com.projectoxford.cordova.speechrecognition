@@ -2,7 +2,8 @@ Cordova Plugin for Microsoft Oxford Speech Recognition
 ==============
 Project Oxford Speech Documentation URL: https://www.projectoxford.ai/doc/speech/overview
 
-IOS version is on develop.
+> **Note:**
+> - IOS version is on develop.
 
 Code example
 ------------
