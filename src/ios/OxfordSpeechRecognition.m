@@ -211,7 +211,7 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence)
     if (micClient != nil) {
         isRecieivedResponse = [micClient waitForFinalResponse:(waitSeconds)];
         [micClient endMicAndRecognition];
-        [micClient finalize];
+        //[micClient finalize];
     }
 
 }
