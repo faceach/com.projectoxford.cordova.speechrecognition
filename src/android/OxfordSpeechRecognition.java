@@ -50,8 +50,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class OxfordSpeechRecognition extends CordovaPlugin implements ISpeechRecognitionServerEvents {
-    protected void pluginInitialize() {
-    }
 
     public static final String ACTION_INIT = "init";
     public static final String ACTION_SPEECH_RECOGNIZE_START = "start";
@@ -64,6 +62,15 @@ public class OxfordSpeechRecognition extends CordovaPlugin implements ISpeechRec
     DataRecognitionClient m_dataClient = null;
     MicrophoneRecognitionClient m_micClient = null;
     SpeechRecognitionMode m_recoMode;
+
+    @Override
+    public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+        super.initialize(cordova, webView);
+
+        // Set the mode and microphone flag to your liking   
+        m_recoMode = SpeechRecognitionMode.ShortPhrase;
+        m_waitSeconds = m_recoMode == SpeechRecognitionMode.ShortPhrase ? 20 : 200;
+    }
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
@@ -185,10 +192,6 @@ public class OxfordSpeechRecognition extends CordovaPlugin implements ISpeechRec
             String primaryOrSecondaryKey = args.getString(1);
             String luisAppID = args.getString(2);
             String luisSubscriptionID = args.getString(3);
-
-            // Set the mode and microphone flag to your liking   
-            m_recoMode = SpeechRecognitionMode.ShortPhrase;
-            m_waitSeconds = m_recoMode == SpeechRecognitionMode.ShortPhrase ? 20 : 200;
 
             if (null == m_micClient) {
                 m_micClient = SpeechRecognitionServiceFactory.createMicrophoneClient(m_recoMode,
