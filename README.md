@@ -10,7 +10,7 @@ Code example
 ```
     var recognition = new OxfordSpeechRecognition({
         "lang": "zh-cn",
-        "primaryKey": "your subscription key"
+        "primaryKey": "<your subscription key>"
     });
     recognition.onresult = function(event) {
         if (event.result) {

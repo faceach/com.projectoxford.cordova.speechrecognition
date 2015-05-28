@@ -85,7 +85,6 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
 -(void)onPartialResponseReceived:(NSString*) response
 {
     NSLog(@"OxfordSR - Partial");
-    self.command = command;
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"OxfordSR - Partial %@", response);
 
@@ -113,7 +112,6 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
 -(void)onFinalResponseReceived:(RecognitionResult*)response
 {
     NSLog(@"OxfordSR - Final");
-    self.command = command;
     bool isFinalDicationMessage = recoMode == SpeechRecognitionMode_LongDictation &&
                                                 (response.RecognitionStatus == RecognitionStatus_EndOfDictation ||
                                                  response.RecognitionStatus == RecognitionStatus_DictationEndSilenceTimeout);
