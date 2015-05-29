@@ -63,14 +63,12 @@ public class OxfordSpeechRecognition extends CordovaPlugin implements ISpeechRec
     MicrophoneRecognitionClient m_micClient = null;
     SpeechRecognitionMode m_recoMode;
 
+    /*
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
-
-        // Set the mode and microphone flag to your liking   
-        m_recoMode = SpeechRecognitionMode.ShortPhrase;
-        m_waitSeconds = m_recoMode == SpeechRecognitionMode.ShortPhrase ? 20 : 200;
     }
+    */
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
@@ -188,6 +186,10 @@ public class OxfordSpeechRecognition extends CordovaPlugin implements ISpeechRec
 
     void initializeRecoClient(JSONArray args) {
         try {
+            // Set the mode and microphone flag to your liking   
+            m_recoMode = SpeechRecognitionMode.ShortPhrase;
+            m_waitSeconds = m_recoMode == SpeechRecognitionMode.ShortPhrase ? 20 : 200;
+
             String language = args.getString(0);
             String primaryOrSecondaryKey = args.getString(1);
             String luisAppID = args.getString(2);
