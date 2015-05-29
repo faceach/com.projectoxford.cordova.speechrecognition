@@ -192,8 +192,8 @@ public class OxfordSpeechRecognition extends CordovaPlugin implements ISpeechRec
 
             String language = args.getString(0);
             String primaryOrSecondaryKey = args.getString(1);
-            String luisAppID = args.getString(2);
-            String luisSubscriptionID = args.getString(3);
+            //String luisAppID = args.getString(2);
+            //String luisSubscriptionID = args.getString(3);
 
             if (null == m_micClient) {
                 m_micClient = SpeechRecognitionServiceFactory.createMicrophoneClient(m_recoMode,

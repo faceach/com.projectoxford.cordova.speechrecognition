@@ -37,8 +37,8 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
     NSString* language = [[command arguments] objectAtIndex:0];
     
     NSString* primaryOrSecondaryKey = [[command arguments] objectAtIndex:1];
-    NSString* luisAppID = [[command arguments] objectAtIndex:2];
-    NSString* luisSubscriptionID = [[command arguments] objectAtIndex:3];
+    //NSString* luisAppID = [[command arguments] objectAtIndex:2];
+    //NSString* luisSubscriptionID = [[command arguments] objectAtIndex:3];
     
     micClient = [SpeechRecognitionServiceFactory createMicrophoneClient:(recoMode)
                                                            withLanguage:(language)
@@ -194,7 +194,7 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence)
     [micClient startMicAndRecognition];
 
     NSMutableDictionary * event = [[NSMutableDictionary alloc]init];
-    [event setValue:@"start" forKey:@"type"];
+    [event setValue:@"start"];
     self.pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:event];
     [self.pluginResult setKeepCallbackAsBool:YES];
     [self.commandDelegate sendPluginResult:self.pluginResult callbackId:self.command.callbackId];
