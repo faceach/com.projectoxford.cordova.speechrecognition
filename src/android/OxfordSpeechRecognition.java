@@ -17,7 +17,7 @@ FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TOR
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-package com.oxford.plugin.speechrecognition;
+package com.microsoft.cordova.speechrecognition;
 
 import java.util.ArrayList;
 
@@ -148,7 +148,7 @@ public class OxfordSpeechRecognition extends CordovaPlugin implements ISpeechRec
 
         JSONObject event = new JSONObject();
         String result = "";
-        if (!isFinalDicationMessage) {
+        if (!isFinalDicationMessage && response.Results.length > 0) {
             //for (int i = 0; i < response.Results.length; i++) {
             //response.Results[i].DisplayText;
             //}

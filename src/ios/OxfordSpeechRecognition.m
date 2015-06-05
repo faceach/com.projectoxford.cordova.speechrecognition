@@ -124,7 +124,7 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
     if ((recoMode == SpeechRecognitionMode_ShortPhrase) || isFinalDicationMessage) {
     }
     
-    if (!isFinalDicationMessage) {
+    if (!isFinalDicationMessage && [response.RecognizedPhrase count] > 0) {
         dispatch_async(dispatch_get_main_queue(), ^{
             RecognizedPhrase* phrase = response.RecognizedPhrase[0];
             NSString* result = phrase.DisplayText;
