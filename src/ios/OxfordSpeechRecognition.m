@@ -193,8 +193,9 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence)
     self.command = command;
     [micClient startMicAndRecognition];
 
+    NSString* result = @"";
     NSMutableDictionary * event = [[NSMutableDictionary alloc]init];
-    [event setValue:@"start"];
+    [event setValue:result forKey:@"start"];
     self.pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:event];
     [self.pluginResult setKeepCallbackAsBool:YES];
     [self.commandDelegate sendPluginResult:self.pluginResult callbackId:self.command.callbackId];
