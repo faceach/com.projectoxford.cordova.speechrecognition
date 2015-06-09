@@ -17,7 +17,7 @@ FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TOR
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-package com.microsoft.cordova.speechrecognition;
+package com.projectoxford.cordova.speechrecognition;
 
 import java.util.ArrayList;
 
