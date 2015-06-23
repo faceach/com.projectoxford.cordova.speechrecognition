@@ -33,7 +33,6 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
     // In the case of microphone use, setup things so microphone can be turned on later.
     [self activateAudioSession];
 
-
     NSString* language = [[command arguments] objectAtIndex:0];
     
     NSString* primaryOrSecondaryKey = [[command arguments] objectAtIndex:1];
@@ -56,26 +55,26 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
 
     if (![session setActive:YES error:&err])
     {
-        NSLog(@"ERROR INITIALIZING AUDIO SESSION! %@\n", [err description]);
+        NSLog(@"OxfordSR - ERROR INITIALIZING AUDIO SESSION! %@\n", [err description]);
     }
     else
     {
         if ( ![session setCategory:AVAudioSessionCategoryPlayAndRecord
                              error:&err] )
         {
-            NSLog(@"couldn't set audio category! %@", err);
+            NSLog(@"OxfordSR - couldn't set audio category! %@", err);
         }
     }
     
     if ( ![session overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker
                                      error:&err] )
     {
-        NSLog(@"couldn't set audio category! %@", err);
+        NSLog(@"OxfordSR - couldn't set audio category! %@", err);
     }
         
     if ( ![session setActive:YES error:&err] )
     {
-        NSLog(@"AudioSessionSetActive (true) failed %@", err);
+        NSLog(@"OxfordSR - AudioSessionSetActive (true) failed %@", err);
     }
 }
 
@@ -100,7 +99,7 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
 /**
 * Called when an intent is parsed and received. 
 */
--(void)onIntentReceived:(IntentResult*) result
+-(void)onIntentReceived:(NSString*) result
 {
     dispatch_async(dispatch_get_main_queue(), ^{
     });
@@ -190,9 +189,10 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence)
 - (void) start:(CDVInvokedUrlCommand*)command
 {
     NSLog(@"OxfordSR - Start");
-    self.command = command;
     [micClient startMicAndRecognition];
+    NSLog(@"OxfordSR - Start 2");
 
+    self.command = command;
     NSString* result = @"";
     NSMutableDictionary * event = [[NSMutableDictionary alloc]init];
     [event setValue:result forKey:@"start"];
